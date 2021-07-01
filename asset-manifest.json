@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/meet/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/meet/static/js/main.aa093966.chunk.js",
-    "main.js.map": "/meet/static/js/main.aa093966.chunk.js.map",
-    "runtime-main.js": "/meet/static/js/runtime-main.6b0ef8ee.js",
-    "runtime-main.js.map": "/meet/static/js/runtime-main.6b0ef8ee.js.map",
-    "static/js/2.bab6c448.chunk.js": "/meet/static/js/2.bab6c448.chunk.js",
-    "static/js/2.bab6c448.chunk.js.map": "/meet/static/js/2.bab6c448.chunk.js.map",
-    "static/js/3.4a418ac2.chunk.js": "/meet/static/js/3.4a418ac2.chunk.js",
-    "static/js/3.4a418ac2.chunk.js.map": "/meet/static/js/3.4a418ac2.chunk.js.map",
-    "index.html": "/meet/index.html",
-    "service-worker.js": "/meet/service-worker.js",
-    "service-worker.js.map": "/meet/service-worker.js.map",
-    "static/css/main.9d5b29c0.chunk.css.map": "/meet/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.bab6c448.chunk.js.LICENSE.txt": "/meet/static/js/2.bab6c448.chunk.js.LICENSE.txt",
-    "static/media/logo.103b5fa1.svg": "/meet/static/media/logo.103b5fa1.svg"
+    "main.css": "/Juan-Rodelo/meet/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/Juan-Rodelo/meet/static/js/main.39250636.chunk.js",
+    "main.js.map": "/Juan-Rodelo/meet/static/js/main.39250636.chunk.js.map",
+    "runtime-main.js": "/Juan-Rodelo/meet/static/js/runtime-main.3f90ee73.js",
+    "runtime-main.js.map": "/Juan-Rodelo/meet/static/js/runtime-main.3f90ee73.js.map",
+    "static/js/2.bab6c448.chunk.js": "/Juan-Rodelo/meet/static/js/2.bab6c448.chunk.js",
+    "static/js/2.bab6c448.chunk.js.map": "/Juan-Rodelo/meet/static/js/2.bab6c448.chunk.js.map",
+    "static/js/3.4a418ac2.chunk.js": "/Juan-Rodelo/meet/static/js/3.4a418ac2.chunk.js",
+    "static/js/3.4a418ac2.chunk.js.map": "/Juan-Rodelo/meet/static/js/3.4a418ac2.chunk.js.map",
+    "index.html": "/Juan-Rodelo/meet/index.html",
+    "service-worker.js": "/Juan-Rodelo/meet/service-worker.js",
+    "service-worker.js.map": "/Juan-Rodelo/meet/service-worker.js.map",
+    "static/css/main.9d5b29c0.chunk.css.map": "/Juan-Rodelo/meet/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.bab6c448.chunk.js.LICENSE.txt": "/Juan-Rodelo/meet/static/js/2.bab6c448.chunk.js.LICENSE.txt",
+    "static/media/logo.103b5fa1.svg": "/Juan-Rodelo/meet/static/media/logo.103b5fa1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6b0ef8ee.js",
+    "static/js/runtime-main.3f90ee73.js",
     "static/js/2.bab6c448.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.aa093966.chunk.js"
+    "static/js/main.39250636.chunk.js"
   ]
 }
