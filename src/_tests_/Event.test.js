@@ -4,7 +4,7 @@ import Event from '../Event';
 import EventList from '../EventList';
 import { mockData } from '../mock-data';
 
-describe('<EventList /> component', () => {
+xdescribe('<EventList /> component', () => {
   let createdEvent;
   beforeAll(() => {
     createdEvent = shallow(<Event event={mockData[0]} />)
