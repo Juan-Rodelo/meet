@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import NumberofEvents from '../NumberofEvents';
 
-xdescribe('<NumberofEvents /> component', () => {
+describe('<NumberofEvents /> component', () => {
 
   let numberFilter;
 

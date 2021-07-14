@@ -37,7 +37,7 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  xtest('App passes "locations" state as a prop to CitySearch', () => {
+  test('App passes "locations" state as a prop to CitySearch', () => {
     const AppWrapper = mount(<App />);
     const AppLocationsState = AppWrapper.state('locations');
     expect(AppLocationsState).not.toEqual(undefined);
@@ -45,7 +45,7 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
   //Always add async to a test’s callback function if it contains async code
-  xtest('get list of events matching the city selected by the user', async () => {
+  test('get list of events matching the city selected by the user', async () => {
     const AppWrapper = mount(<App />);
     const CitySearchWrapper = AppWrapper.find(CitySearch);
     const locations = extractLocations(mockData);
@@ -65,7 +65,7 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  xtest('get list of all events when user selects "See all cities"', async () => {
+  test('get list of all events when user selects "See all cities"', async () => {
     const AppWrapper = mount(<App />);
     const suggestionItems = AppWrapper.find(CitySearch).find('.suggestions li');
     await suggestionItems.at(suggestionItems.length - 1).simulate('click');
