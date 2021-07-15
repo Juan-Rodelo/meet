@@ -12,7 +12,7 @@ if (!accessToken || tokenCheck.error) {
   const code = await searchParams.get("code");
   if (!code) {
     const results = await axios.get(
-      "YOUR_SERVERLESS_GET_AUTH_URL_ENDPOINT"
+      "https://bf33h2sl8d.execute-api.us-east-2.amazonaws.com/dev/api/get-events/"
     );
     const { authUrl } = results.data;
     return (window.location.href = authUrl);
