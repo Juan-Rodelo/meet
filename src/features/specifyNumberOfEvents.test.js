@@ -35,7 +35,9 @@ defineFeature(feature, test => {
 
     when('the user changes the default value of events showed to 8', () => {
       AppWrapper.update();
-      AppWrapper.find('#number').simulate('change', { target: { value: 8 } });
+      AppWrapper.find(".event-number-input").simulate("change", {
+        target: { value: 8 }
+      });
     });
 
     then('the page will only display 8 events', () => {
