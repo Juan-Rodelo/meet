@@ -1,32 +1,49 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+import { ErrorAlert } from './Alert';
 
-function NumberofEvents(props) {
-  const [eventsToShow, setEventsToShow] = useState(props.eventsToShow);
-  const text = props.text
 
-  const handleChange = (event) => {
-    if (event.target.value === "") {
-      setEventsToShow(event.target.value);
-      props.updateEventNum("NoNum");
+class NumberOfEvents extends Component {
+  state = {
+    eventCount: this.props.eventCount,
+  };
+
+  handleEventInputChanged = (event) => {
+    const eventCount = event.target.value;
+    if (eventCount < 1) {
+      return this.setState({
+        eventCount: '',
+        errorText: `Select number between 1 and 32`,
+      });
+    } else if (eventCount > 32) {
+      return this.setState({
+        eventCount: '',
+        errorText: `Select number between 1 and 32`,
+      });
     } else {
-      setEventsToShow(event.target.value);
-      props.updateEventNum(event.target.value)
+      this.setState({
+        eventCount,
+        errorText: '',
+      });
+      this.props.updateEvents('', eventCount);
     }
+  };
+
+  render() {
+    return (
+      <div className='event-number'>
+        <label htmlFor='numberOfEvent'>Number of Events</label>
+        <input
+          type='number'
+          name='numberOfEvent'
+          className='event-number-input'
+          placeholder='Enter Number of Events'
+          value={this.state.eventCount}
+          onChange={this.handleEventInputChanged}
+        />
+        <ErrorAlert text={this.state.errorText} />
+      </div>
+    );
   }
-
-  return (
-    <div className="numberOfEvents">
-
-      <label htmlFor="number">Events per page: </label>
-      <input
-        type="number"
-        id="number"
-        className="numberInput"
-        value={eventsToShow}
-        placeholder="#"
-        onChange={handleChange} />
-    </div>
-  )
 }
 
-export default NumberofEvents;
+export default NumberOfEvents;
