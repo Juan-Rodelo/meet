@@ -87,7 +87,7 @@ module.exports.getAccessToken = async (event) => {
     });
 };
 
-module.exports.getCalendarEvents = async () => {
+module.exports.getCalendarEvents = async (event) => {
 
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
@@ -95,7 +95,7 @@ module.exports.getCalendarEvents = async () => {
     redirect_uris[0]
   );
   // Decode authorization code extracted from the URL query
-  const access_token = decodeURIComponent(`$(event.pathParameters.access_token)`);
+  const access_token = decodeURIComponent(`${event.pathParameters.access_token}`);
   oAuth2Client.setCredentials({ access_token });
 
 
