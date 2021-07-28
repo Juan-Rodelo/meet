@@ -50,7 +50,7 @@ const getAuthURL = async () => {
 };
 module.exports = { getAuthURL };
 
-module.exports.getAccessToken = async () => {
+module.exports.getAccessToken = async (event) => {
 
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
@@ -58,8 +58,7 @@ module.exports.getAccessToken = async () => {
     redirect_uris[0]
   );
   // Decode authorization code extracted from the URL query
-  const code = decodeURIComponent(`$(event.pathParameters.code)`);
-
+  const code = decodeURIComponent(`${event.pathParameters.code}`);
   return new Promise((resolve, reject) => {
     oAuth2Client.getToken(code, (err, token) => {
       // Exchange authorization code for access token with a “callback” after the exchange, The callback in this case is an arrow function with the results as parameters: “err” and “token
