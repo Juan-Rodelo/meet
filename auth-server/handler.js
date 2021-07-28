@@ -29,7 +29,7 @@ const oAuth2Client = new google.auth.OAuth2(
 
 // The first step in the OAuth process is to generate a URL so users can log in with Google and be authorized to see your calendar. After logging in, they’ll receive a code as a URL parameter.
 
-const getAuthURL = async () => {
+module.exports.getAuthURL = async () => {
 
   // Scopes array passed to the `scope` option. Any scopes passed must be enabled in the "OAuth consent screen" settings in your project on your Google Console. Also, any passed scopes are the ones users will see when the consent screen is displayed to them.
 
@@ -37,7 +37,7 @@ const getAuthURL = async () => {
     access_type: "offline",
     scope: SCOPES,
   });
-
+  console.log(authUrl, SCOPES)
   return {
     statusCode: 200,
     headers: {
@@ -48,13 +48,12 @@ const getAuthURL = async () => {
     }),
   };
 };
-module.exports = { getAuthURL };
 
 module.exports.getAccessToken = async (event) => {
-
+  console.log('getAccessToken')
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
-    clien_secret,
+    client_secret,
     redirect_uris[0]
   );
   // Decode authorization code extracted from the URL query
