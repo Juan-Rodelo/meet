@@ -8,6 +8,7 @@ export const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
+
     .then((res) => res.json())
     .catch((error) => error.json());
 
@@ -17,7 +18,8 @@ export const checkToken = async (accessToken) => {
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
-    `https://bf33h2sl8d.execute-api.us-east-2.amazonaws.com/dev/api/token/${encodeCode}`
+    `https://bf33h2sl8d.execute-api.us-east-2.amazonaws.com/dev/api/token/${encodeCode}`,
+    { mode: 'no-cors' }
 
   )
     .then((res) => {
@@ -28,6 +30,7 @@ const getToken = async (code) => {
   access_token && localStorage.setItem("access_token", access_token);
 
   return access_token;
+
 };
 
 const removeQuery = () => {
@@ -45,23 +48,23 @@ const removeQuery = () => {
 };
 
 export const extractLocations = (events) => {
-  var extractLocations = events.map((event) => event.location);
-  var locations = [...new Set(extractLocations)];
+  let extractLocations = events.map((event) => event.location);
+  let locations = [...new Set(extractLocations)];
   return locations;
 };
 
 
 export const getEvents = async () => {
-  NProgress.start();
+  // NProgress.start();
 
   if (window.location.href.startsWith("http://localhost")) {
-    NProgress.done();
+    // NProgress.done();
     return mockData;
   }
 
   if (!navigator.onLine) {
     const events = localStorage.getItem('lastEvents');
-    NProgress.done();
+    // NProgress.done();
     console.log(events);
     return events ? JSON.parse(events).events : [];
   }
@@ -70,14 +73,15 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url = 'https://bf33h2sl8d.execute-api.us-east-2.amazonaws.com/dev/api/get-events/{access_token}'
+    const url = `https://bf33h2sl8d.execute-api.us-east-2.amazonaws.com/dev/api/get-events/${token}`
+
     const result = await axios.get(url);
     if (result.data) {
-      var locations = extractLocations(result.data.events);
+      let locations = extractLocations(result.data.events);
       localStorage.setItem("lastEvents", JSON.stringify(result.data));
       localStorage.setItem("locations", JSON.stringify(locations));
     }
-    NProgress.done();
+    // NProgress.done();
     return result.data.events;
   }
 };
@@ -95,7 +99,8 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const results = await axios.get(
-        "https://bf33h2sl8d.execute-api.us-east-2.amazonaws.com/dev/api/get-auth-url/"
+        "https://bf33h2sl8d.execute-api.us-east-2.amazonaws.com/dev/api/get-auth-url",
+        { mode: 'no-cors' }
       );
       const { authUrl } = results.data;
       return (window.location.href = authUrl);

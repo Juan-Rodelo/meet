@@ -21,7 +21,7 @@ const credentials = {
   javascript_origins: ["https://Juan-Rodelo.github.io", "http://localhost:3000"],
 };
 const { client_secret, client_id, redirect_uris, calendar_id } = credentials;
-const oAuth2Client = new google.auth.OAuth2(
+const oAuth2Client = new OAuth2(
   client_id,
   client_secret,
   redirect_uris[0]
@@ -51,14 +51,18 @@ module.exports.getAuthURL = async () => {
 
 module.exports.getAccessToken = async (event) => {
   console.log('getAccessToken')
-  const oAuth2Client = new google.auth.OAuth2(
+  // const oAuth2Client = new google.auth.OAuth2(
+
+  const oAuth2Client = new OAuth2(
     client_id,
     client_secret,
     redirect_uris[0]
   );
   // Decode authorization code extracted from the URL query
   const code = decodeURIComponent(`${event.pathParameters.code}`);
+
   return new Promise((resolve, reject) => {
+
     oAuth2Client.getToken(code, (err, token) => {
       // Exchange authorization code for access token with a “callback” after the exchange, The callback in this case is an arrow function with the results as parameters: “err” and “token
       if (err) {
@@ -89,7 +93,7 @@ module.exports.getAccessToken = async (event) => {
 
 module.exports.getCalendarEvents = async (event) => {
 
-  const oAuth2Client = new google.auth.OAuth2(
+  const oAuth2Client = new OAuth2(
     client_id,
     clien_secret,
     redirect_uris[0]
@@ -100,6 +104,7 @@ module.exports.getCalendarEvents = async (event) => {
 
 
   return new Promise((resolve, reject) => {
+
     calendar.events.list(
       {
         calendarId: calendar_id,
